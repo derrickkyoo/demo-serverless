@@ -1,0 +1,13 @@
+{
+  "name": "demo-sls",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "serverless-http": "^2.6.0",
+    "serverless-offline": "^6.8.0"
+  },
+  "scripts": {
+    "dev": "sls offline start --port 4500"
+  }
+}
