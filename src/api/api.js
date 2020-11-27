@@ -1,14 +1,25 @@
 'use strict';
 
-const serverless = require('serverless-http');
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
 
 app.get('/', (req, res) => {
   res.json('Hello World!')
 })
 
-module.exports.handler = serverless(app);
+app.get('/todos', (req, res) => {
+  const todos = [
+    {id: 1, name: 'create project', status: 'done'},
+    {id: 2, name: 'code', status: 'open'},
+  ]
+  res.json({data: todos})
+})
+
+app.get('/todos/:todo', (req, res) => {
+  res.json({id: 2, name: 'code', status: 'open'})
+})
+
+module.exports = app
 
 // module.exports.handler = (evt, ctx, done) => {
 //   done(null, {
